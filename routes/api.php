@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/user/{id}', [UserController::class, 'sqlInject']);
+
+Route::get('/user-by-raw/{id}', [UserController::class, 'sqlInjectOnRaw']);
+
+Route::post('/user-by-statement', [UserController::class, 'sqlInjectOnStatement']);
+
+Route::post('/user-save', [UserController::class, 'addUser']);
