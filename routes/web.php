@@ -18,9 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::get('/user', function () {
     return view('user');
-});
+})->name('user');
 
 Route::get('/user/{name}', [UserController::class, 'sqlInject']);
 
