@@ -30,14 +30,14 @@ class UserController extends Controller
     public function sqlInjectOnRaw($id)
     {
         //sql inject query
-        // $user = DB::table('users')
-        // ->select('*')
-        // ->whereRaw('id =' . $id)->first(); 
-
-        //sanitized query
         $user = DB::table('users')
         ->select('*')
-        ->whereRaw('id = ?' , $id)->first(); 
+        ->whereRaw('id =' . $id)->first(); 
+
+        //sanitized query
+        // $user = DB::table('users')
+        // ->select('*')
+        // ->whereRaw('id = ?' , $id)->first(); 
         return $user;
     }
 
@@ -49,8 +49,25 @@ class UserController extends Controller
 
     public function sqlInjectOnStatement(Request $request)
     {
-        DB::statement("UPDATE users SET name=".$request->name."  WHERE email =".$request->email."");
+        $data = $request->all();
+        // dd("UPDATE users SET name='".$data['name']."' WHERE email ='".$data['email']."'");
+        DB::statement("UPDATE users SET name='".$data['name']."' WHERE email ='".$data['email']."'");
 
         return User::all();
+    }
+
+    public function xssAttack(Request $request)
+    {
+        $name = isset($request->name) ? $request->name : 'test';
+        // dd($name);
+        return view('user', compact('name'));
+    }
+
+    public function xssAttackTwo(Request $request)
+    {
+        //attack
+        // echo "Hello " . $_GET['name'];
+        //prevention
+        echo "Hello " . htmlspecialchars($_GET['name']);
     }
 }

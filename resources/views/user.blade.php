@@ -12,7 +12,10 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
+              {{-- attack --}}
+              <h5 class="card-title">Datatables <?php echo $_GET['name']; ?></h5>
+              {{-- prevention --}}
+              <h5 class="card-title">Datatables {{ Request::get('name') }}
               <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
 
               <!-- Table with stripped rows -->
