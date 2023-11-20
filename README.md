@@ -7,60 +7,42 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Database Attacks
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+"Database attacks" refer to unauthorized activities aimed at exploiting vulnerabilities in a database system, compromising its integrity, confidentiality, and availability.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Here i mentioned some of them,
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-SQL Injection (SQLi)
 
-## Learning Laravel
+-Cross-Site Scripting (XSS)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-Brute Force Attacks
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## SQL Injection (SQLi)
 
-## Laravel Sponsors
+Attackers inject malicious SQL code into input fields to manipulate the database.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Example : SELECT * FROM users WHERE username = 'john.doe' OR 2=2;--'
 
-### Premium Partners
+Prevention : Avoid raw queries, make sure manupulation won't occur in other eloquent queries, validation.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Reference : https://www.stackhawk.com/blog/sql-injection-prevention-laravel
 
-## Contributing
+## Cross-Site Scripting (XSS)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Attackers look for vulnerabilities on a website that will let them inject malicious scripts into the website.
 
-## Code of Conduct
+Example : https://example.com/profile/?u=<script>alert("Hahaha!!! you got hacked!!!")</script>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Prevention : Embedded PHP Code, Rendering UI Outside Blade, Using Laravel Middleware for XSS Prevention.
 
-## Security Vulnerabilities
+Reference : https://www.stackhawk.com/blog/laravel-xss
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Brute Force Attacks
 
-## License
+A Brute Force Attack is a trial-and-error method used by attackers to gain unauthorized access to a system, application, or account by systematically trying all possible combinations of usernames and passwords.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Prevention : Account Lockout,Rate Limiting,Strong Password Policies and Multi-Factor Authentication (MFA).
+
