@@ -37,3 +37,9 @@ Route::get('/xss-attack', [UserController::class, 'xssAttack']);
 Route::get('/xss-attack-2', [UserController::class, 'xssAttackTwo']);
 
 Route::get('/test', [TestController::class, 'test']);
+
+Route::get('/add/{num1}/{num2}', [TestController::class, 'add']);
+Route::get('/subtract/{num1}/{num2}', [TestController::class, 'subtract']);
+Route::get('/multiply/{num1}/{num2}', [TestController::class, 'multiply']);
+Route::get('/divide/{num1}/{num2}', [TestController::class, 'divide']);
+
