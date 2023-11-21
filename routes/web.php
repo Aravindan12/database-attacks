@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,4 @@ Route::get('/xss-attack', [UserController::class, 'xssAttack']);
 //http://127.0.0.1:8000/xss-attack-2/?name=%3Cscript%3Ewindow.location.href%20=%20%22http://stackoverflow.com%22;%E2%80%9D%3C/script%3E
 Route::get('/xss-attack-2', [UserController::class, 'xssAttackTwo']);
 
+Route::get('/test', [TestController::class, 'test']);
