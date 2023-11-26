@@ -50,7 +50,7 @@
   {{-- malicious code that used to create random book data at 2 sec time interval --}}
   {{-- <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 
-  <script>
+  <script nonce="{{ csp_nonce() }}">
     axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
     function randomNumberBetween(min, max) {
