@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -81,5 +82,23 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('users', compact('users'));
+    }
+
+    public function addNewBook()
+    {
+        return view('add-book');
+    }
+
+    public function storeBook(Request $request)
+    {
+        $book = Book::create($request->all());
+        return redirect(route('list-books'));
+    }
+
+
+    public function listBooks()
+    {
+        $books = Book::all();
+        return view('books', compact('books'));
     }
 }

@@ -46,3 +46,7 @@ Route::get('/divide/{num1}/{num2}', [TestController::class, 'divide']);
 Route::get('/add-user', [UserController::class, 'addNewUser'])->name('add-user');
 Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-user');
 Route::get('/list-users', [UserController::class, 'listUsers'])->name('list-users');
+
+Route::get('/add-book', [UserController::class, 'addNewBook'])->name('add-book');
+Route::post('/store-book', [UserController::class, 'storeBook'])->name('store-book');
+Route::get('/list-books', [UserController::class, 'listBooks'])->name('list-books');
