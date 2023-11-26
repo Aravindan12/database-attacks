@@ -23,9 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/user', function () {
-    return view('user');
-})->name('user');
+// Route::get('/user', function () {
+//     return view('users');
+// })->name('user');
 
 Route::get('/user/{name}', [UserController::class, 'sqlInject']);
 
@@ -43,3 +43,6 @@ Route::get('/subtract/{num1}/{num2}', [TestController::class, 'subtract']);
 Route::get('/multiply/{num1}/{num2}', [TestController::class, 'multiply']);
 Route::get('/divide/{num1}/{num2}', [TestController::class, 'divide']);
 
+Route::get('/add-user', [UserController::class, 'addNewUser'])->name('add-user');
+Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-user');
+Route::get('/list-users', [UserController::class, 'listUsers'])->name('list-users');

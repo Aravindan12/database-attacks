@@ -41,12 +41,6 @@ class UserController extends Controller
         return $user;
     }
 
-    public function addUser(Request $request)
-    {
-        $user = User::create($request->all());
-        return $user;
-    }
-
     public function sqlInjectOnStatement(Request $request)
     {
         $data = $request->all();
@@ -69,5 +63,23 @@ class UserController extends Controller
         // echo "Hello " . $_GET['name'];
         //prevention
         echo "Hello " . htmlspecialchars($_GET['name']);
+    }
+
+    public function addNewUser()
+    {
+        return view('add-user');
+    }
+
+    public function storeUser(Request $request)
+    {
+        $user = User::create($request->all());
+        return redirect(route('list-users'));
+    }
+
+
+    public function listUsers()
+    {
+        $users = User::all();
+        return view('users', compact('users'));
     }
 }

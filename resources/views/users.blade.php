@@ -13,11 +13,9 @@
           <div class="card">
             <div class="card-body">
               {{-- attack --}}
-              <h5 class="card-title">Datatables <?php echo $_GET['name']; ?></h5>
               {{-- prevention --}}
-              <h5 class="card-title">Datatables {{ Request::get('name') }}
-              <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
-
+              <h5 class="card-title">Users</h5>
+              <a href="{{route('add-user')}}"><button class="btn btn-primary pull-right">Add User</button></a>
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
@@ -25,18 +23,17 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
+                  @foreach ($users as $user)       
+                    <tr>
+                      <th scope="row">{{$loop->index+1}}</th>
+                      <td>{{$user->name}}</td>
+                      <td>{{$user->email}}</td>
+                    </tr>
+                  @endforeach
+
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

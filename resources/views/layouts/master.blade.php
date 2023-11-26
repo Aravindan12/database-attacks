@@ -279,7 +279,7 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('user')}}">
+                <a class="nav-link " href="{{ route('list-users')}}">
                 <i class="bi bi-journal-text"></i>
                 <span>Users</span>
                 </a>
