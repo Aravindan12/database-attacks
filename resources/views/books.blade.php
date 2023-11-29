@@ -23,6 +23,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,30 @@
                       <th scope="row">{{$loop->index+1}}</th>
                       <td>{{$book->name}}</td>
                       <td>{!! $book->description !!}</td>
+                      <td>
+                          <a class="" href="#" data-bs-toggle="dropdown">...
+                          </a><!-- End Profile Iamge Icon -->
+                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center" href="">
+                                  <i class="bi bi-person"></i>
+                                  <span>View</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center" href="">
+                                  <i class="bi bi-person"></i>
+                                  <span>Edit</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center" href="">
+                                  <i class="bi bi-person"></i>
+                                  <span>Delete</span>
+                              </a>
+                            </li>
+                          </ul><!-- End Profile Dropdown Items -->
+                      </td>
                     </tr>
                   @endforeach
 

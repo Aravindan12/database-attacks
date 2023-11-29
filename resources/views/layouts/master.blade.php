@@ -22,6 +22,7 @@
   <link href="{{asset('assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
@@ -544,7 +545,8 @@
   <script src="{{asset('assets/vendor/chart.js/chart.umd.js')}}"></script>
   <script src="{{asset('assets/vendor/echarts/echarts.min.js')}}"></script>
   <script src="{{asset('assets/vendor/quill/quill.min.js')}}"></script>
-  <script src="{{asset('assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script nonce="{{csp_nonce()}}" src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
+  <script nonce="{{csp_nonce()}}" src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('assets/vendor/tinymce/tinymce.min.js')}}"></script>
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
 

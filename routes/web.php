@@ -50,3 +50,4 @@ Route::get('/list-users', [UserController::class, 'listUsers'])->name('list-user
 Route::get('/add-book', [UserController::class, 'addNewBook'])->name('add-book');
 Route::post('/store-book', [UserController::class, 'storeBook'])->name('store-book');
 Route::get('/list-books', [UserController::class, 'listBooks'])->name('list-books');
+// Route::get('/list-book/{book}', [UserController::class, 'listBooks'])->name('list-books');
